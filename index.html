@@ -1,1642 +1,1028 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<html lang="ar" dir="rtl"><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>SAMURAI STORE | متجر ألعاب PlayStation</title>
-<meta name="description" content="SAMURAI STORE - متجرك الأول لألعاب PlayStation 5 و PlayStation 4 والاشتراكات والإكسسوارات">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كنوز الطبيعة | عسل فاخر من قلب الطبيعة</title>
+<meta name="description" content="كنوز الطبيعة - أجود أنواع العسل الطبيعي الفاخر">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Reem+Kufi:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;family=Tajawal:wght@300;400;500;700;900&amp;family=Amiri:wght@400;700&amp;family=Reem+Kufi:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* ========== RESET ========== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
-    --bg-main: #0A0A0F;
-    --bg-secondary: #1A0A10;
-    --bg-card: #150508;
-    --accent: #E63946;
-    --accent-dark: #8B0000;
-    --accent-light: #FF4D5E;
-    --accent-gradient: linear-gradient(135deg, #E63946 0%, #8B0000 100%);
-    --accent-gradient-soft: linear-gradient(135deg, rgba(230,57,70,0.15) 0%, rgba(139,0,0,0.15) 100%);
-    --gold: #FFB800;
-    --green: #06D6A0;
-    --text: #FFFFFF;
-    --text-secondary: #B8A0A5;
-    --border: rgba(230,57,70,0.18);
-    --shadow-red: 0 10px 40px rgba(230,57,70,0.35);
-    --shadow-red-strong: 0 20px 60px rgba(230,57,70,0.55);
+    /* الألوان الجديدة - ذهبي أفخم */
+    --gold: #F4D03F;
+    --gold-light: #FEF9E7;
+    --gold-dark: #B7950B;
+    --gold-deep: #9A7D0A;
+    --honey: #E6A817;
+    --honey-dark: #B8860B;
+    --amber: #FFC300;
+    --amber-light: #FFD966;
+    
+    /* الخلفيات */
+    --dark: #0B0B0F;
+    --dark-2: #14141F;
+    --dark-3: #1F1F2E;
+    --light: #FFFEF9;
+    --cream: #FDF9EC;
+    --cream-2: #F8F0D8;
+    
+    /* النصوص */
+    --text: #1F1F1F;
+    --text-light: #6B6B6B;
+    
+    /* الظلال */
+    --shadow-sm: 0 5px 20px rgba(0,0,0,0.06);
+    --shadow: 0 15px 50px rgba(0,0,0,0.1);
+    --shadow-hover: 0 30px 80px rgba(244, 208, 63, 0.4);
+    --glow-gold: 0 0 40px rgba(244, 208, 63, 0.5);
+    --glow-amber: 0 0 40px rgba(255, 195, 0, 0.5);
+    
+    /* الحدود */
+    --radius: 28px;
+    --radius-sm: 18px;
+    --radius-lg: 40px;
+    
+    /* الحركات */
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    --transition-slow: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Tajawal', sans-serif;
-    background: var(--bg-main);
-    background-image: 
-        radial-gradient(circle at 0% 0%, rgba(139,0,0,0.15) 0%, transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(230,57,70,0.1) 0%, transparent 40%);
-    background-attachment: fixed;
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    background: var(--light);
     color: var(--text);
-    line-height: 1.6;
     overflow-x: hidden;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 80px;
 }
 
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-ul { list-style: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--gold), var(--honey), var(--gold-dark));
+    border-radius: 10px;
+    border: 2px solid var(--dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--amber), var(--gold), var(--honey));
+}
 
-.container { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
 
-/* NAVBAR */
+/* ========== PRELOADER ========== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content { text-align: center; }
+
+.gem-loader {
+    font-size: 5rem;
+    animation: gemFloat 2s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 10px 30px rgba(244, 208, 63, 0.8));
+}
+
+@keyframes gemFloat {
+    0%, 100% { transform: translateY(0) rotate(-10deg) scale(1); }
+    50% { transform: translateY(-25px) rotate(10deg) scale(1.1); }
+}
+
+.loader-text {
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--gold), var(--amber), var(--gold), var(--honey));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 2s ease infinite;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ========== FLOATING WHATSAPP BUTTON ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    z-index: 9998;
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+    animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 15px 60px rgba(37, 211, 102, 0.8);
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 0 0 25px rgba(37, 211, 102, 0); }
+}
+
+/* ========== NAVBAR ========== */
 .navbar {
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+    padding: 18px 0;
+    transition: var(--transition);
 }
 
-.navbar .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.navbar.scrolled {
+    background: rgba(11, 11, 15, 0.92);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(244, 208, 63, 0.2);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
 
-.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.7rem;
+    font-weight: 900;
+    text-decoration: none;
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    transition: var(--transition);
+}
 
 .logo-icon {
-    width: 44px; height: 44px;
-    background: var(--accent-gradient);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem; color: #fff;
-    box-shadow: var(--shadow-red);
-    position: relative; overflow: hidden;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--gold), var(--amber), var(--honey));
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    font-size: 1.8rem;
+    box-shadow: 0 10px 35px rgba(244, 208, 63, 0.5);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .logo-icon::after {
     content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%);
+    transform: translateX(-150%);
+    transition: transform 0.8s ease;
 }
 
-.logo-text h1 {
-    font-size: 1.15rem;
-    font-family: 'Reem Kufi', sans-serif;
-    font-weight: 900;
-    line-height: 1;
-    background: var(--accent-gradient);
+.logo:hover .logo-icon::after {
+    transform: translateX(150%);
+}
+
+.logo:hover .logo-icon {
+    transform: rotate(-10deg) scale(1.08);
+    box-shadow: 0 15px 45px rgba(244, 208, 63, 0.8);
+}
+
+.logo-text {
+    background: linear-gradient(135deg, var(--gold), var(--amber), var(--honey), var(--gold));
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 1px;
+    animation: gradientShift 4s ease infinite;
 }
 
-.logo-text span { font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 4px; font-weight: 600; }
-
-.nav-actions { display: flex; align-items: center; gap: 8px; }
-
-.nav-icon-btn {
-    width: 42px; height: 42px;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 1.1rem;
-    transition: all 0.3s;
-    border: 1px solid var(--border);
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    align-items: center;
 }
 
-.nav-icon-btn:hover, .nav-icon-btn:active {
-    background: var(--accent-gradient);
-    border-color: transparent;
-    transform: scale(1.05);
-    box-shadow: var(--shadow-red);
-}
-
-.nav-icon-btn.whatsapp {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    border-color: transparent;
-    box-shadow: 0 6px 20px rgba(37,211,102,0.3);
-}
-
-/* HERO */
-.hero-section { padding: 20px 0 30px; }
-
-.hero-slider {
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 22px;
+    border-radius: 50px;
+    transition: var(--transition-fast);
     position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 60px rgba(230,57,70,0.15);
 }
 
-.hero-slide {
-    position: absolute; inset: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+.nav-links a:not(.nav-cta):hover,
+.nav-links a:not(.nav-cta).active {
+    color: var(--gold-light);
+    background: rgba(244, 208, 63, 0.12);
+}
+
+.nav-cta {
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    color: #fff !important;
+    font-weight: 800 !important;
+    padding: 12px 28px !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+}
+
+.menu-toggle {
+    display: none;
+    background: rgba(244, 208, 63, 0.15);
+    border: 1px solid rgba(244, 208, 63, 0.4);
+    font-size: 1.4rem;
+    color: var(--gold);
     cursor: pointer;
-    background-size: cover;
-    background-position: center;
+    padding: 10px 14px;
+    border-radius: 12px;
 }
 
-.hero-slide.active { opacity: 1; z-index: 2; }
+/* ========== HERO ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--dark);
+    padding: 120px 0 60px;
+}
 
-.hero-slide::after {
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+.hero-bg::after {
     content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(10,10,15,0.6) 70%, rgba(10,10,15,0.98) 100%);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(11,11,15,0.95) 0%, rgba(11,11,15,0.75) 50%, rgba(11,11,15,0.92) 100%);
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content .badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(244, 208, 63, 0.12);
+    border: 1px solid rgba(244, 208, 63, 0.4);
+    color: var(--gold-light);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.badge-top i {
+    color: var(--amber);
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(20deg); }
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.hero-content h1 .highlight {
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 50%, var(--honey) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    filter: drop-shadow(0 0 20px rgba(244, 208, 63, 0.5));
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 40px;
+    max-width: 540px;
+    line-height: 1.9;
+}
+
+.hero-content p strong {
+    color: var(--gold-light);
+    font-weight: 700;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 55px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-family: 'Tajawal', sans-serif;
+    position: relative;
+    overflow: hidden;
     z-index: 1;
 }
 
-.hero-content {
-    position: absolute; bottom: 0; right: 0; left: 0;
-    padding: 24px 20px;
-    z-index: 3;
-    text-align: right;
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--honey));
+    color: var(--dark);
+    box-shadow: 0 12px 40px rgba(244, 208, 63, 0.5);
 }
 
-.hero-badge {
-    display: inline-block;
-    background: var(--accent-gradient);
-    color: #fff;
-    padding: 5px 14px;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-    box-shadow: var(--shadow-red);
-}
-
-.hero-content h2 {
-    font-family: 'Reem Kufi', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 8px;
-    color: #fff;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-}
-
-.hero-content .hero-price {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--green);
-    margin-bottom: 14px;
-    display: block;
-}
-
-.btn-hero {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--accent-gradient);
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    box-shadow: var(--shadow-red);
-}
-
-.btn-hero:hover, .btn-hero:active {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-red-strong);
-}
-
-.slider-dots {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 6px;
-    z-index: 10;
-}
-
-.dot {
-    width: 8px; height: 8px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.dot.active {
-    background: var(--accent);
-    width: 24px;
-    border-radius: 4px;
-    box-shadow: var(--shadow-red);
-}
-
-/* SECTIONS */
-.section { padding: 30px 0; }
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.section-header h2 {
-    font-family: 'Reem Kufi', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-header h2::before {
-    content: '';
-    width: 4px;
-    height: 24px;
-    background: var(--accent-gradient);
-    border-radius: 2px;
-    box-shadow: var(--shadow-red);
-}
-
-.view-all-btn {
-    color: var(--accent-light);
-    font-weight: 700;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s;
-    padding: 8px 14px;
-    border-radius: 50px;
-    background: var(--accent-gradient-soft);
-    border: 1px solid var(--border);
-}
-
-.view-all-btn:hover, .view-all-btn:active {
-    background: var(--accent-gradient);
-    color: #fff;
-    gap: 10px;
-    box-shadow: var(--shadow-red);
-}
-
-/* GRID */
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.game-card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid var(--border);
-    position: relative;
-}
-
-.game-card:active { transform: scale(0.98); }
-.game-card:hover {
-    border-color: var(--accent);
-    box-shadow: var(--shadow-red);
-    transform: translateY(-4px);
-}
-
-.game-image {
-    position: relative;
-    aspect-ratio: 2/3;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1A0A10 0%, #0A0A0F 100%);
-}
-
-.game-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.game-card:hover .game-image img { transform: scale(1.08); }
-
-.game-badge {
-    position: absolute;
-    top: 10px; right: 10px;
-    padding: 4px 10px;
-    border-radius: 50px;
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #fff;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-}
-
-.badge-pre { background: var(--accent-gradient); box-shadow: var(--shadow-red); }
-.badge-new { background: linear-gradient(135deg, #06D6A0, #059669); color: #000; box-shadow: 0 4px 15px rgba(6,214,160,0.4); }
-.badge-hot { background: linear-gradient(135deg, #FFB800, #D97706); color: #000; box-shadow: 0 4px 15px rgba(255,184,0,0.4); }
-.badge-other { background: linear-gradient(135deg, #6C5CE7, #4C1D95); box-shadow: 0 4px 15px rgba(108,92,231,0.4); }
-.badge-sub { background: linear-gradient(135deg, #00B4D8, #0077B6); box-shadow: 0 4px 15px rgba(0,180,216,0.4); }
-.badge-acc { background: linear-gradient(135deg, #F77F00, #D62828); box-shadow: 0 4px 15px rgba(247,127,0,0.4); }
-
-.game-info { padding: 12px; }
-
-.game-info h3 {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 36px;
-}
-
-.game-price {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--accent-light);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.game-price small { color: var(--text-secondary); font-weight: 400; font-size: 0.7rem; }
-
-/* LOAD MORE */
-.load-more-container { text-align: center; padding: 24px 0; display: none; }
-
-.load-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent-gradient);
-    color: #fff;
-    padding: 14px 40px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 0.95rem;
-    transition: all 0.3s;
-    box-shadow: var(--shadow-red);
-}
-
-.load-more-btn:hover, .load-more-btn:active {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-red-strong);
-}
-
-/* PAGES */
-.page { display: none; animation: fadeIn 0.4s ease; }
-.page.active { display: block; }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* SEARCH */
-.search-section { padding: 16px 0; }
-
-.search-bar { position: relative; width: 100%; }
-
-.search-bar input {
-    width: 100%;
-    padding: 14px 48px 14px 20px;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border);
-    border-radius: 50px;
-    color: #fff;
-    font-family: inherit;
-    font-size: 0.9rem;
-    outline: none;
-    transition: all 0.3s;
-}
-
-.search-bar input:focus {
-    border-color: var(--accent);
-    background: var(--bg-card);
-    box-shadow: 0 0 0 4px rgba(230,57,70,0.15), var(--shadow-red);
-}
-
-.search-bar input::placeholder { color: var(--text-secondary); }
-
-.search-bar i {
-    position: absolute;
-    right: 20px; top: 50%;
-    transform: translateY(-50%);
-    color: var(--accent);
-    font-size: 1rem;
-    pointer-events: none;
-}
-
-/* FILTERS */
-.filters-bar {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    scrollbar-width: none;
-}
-
-.filters-bar::-webkit-scrollbar { display: none; }
-
-.filter-btn {
-    padding: 10px 20px;
-    background: var(--bg-secondary);
-    border: 1.5px solid var(--border);
-    border-radius: 50px;
-    color: var(--text-secondary);
-    font-weight: 700;
-    font-size: 0.82rem;
-    white-space: nowrap;
-    transition: all 0.3s;
-    flex-shrink: 0;
-}
-
-.filter-btn:hover, .filter-btn:active { border-color: var(--accent); color: var(--accent-light); }
-
-.filter-btn.active {
-    background: var(--accent-gradient);
-    border-color: transparent;
-    color: #fff;
-    box-shadow: var(--shadow-red);
-}
-
-.results-count {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    padding: 0 4px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.results-count strong { color: var(--accent-light); font-size: 1rem; }
-
-.no-results { text-align: center; padding: 60px 20px; display: none; }
-.no-results.show { display: block; }
-.no-results i { font-size: 3rem; color: var(--accent); opacity: 0.4; margin-bottom: 16px; }
-.no-results h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
-.no-results p { color: var(--text-secondary); font-size: 0.9rem; }
-
-/* LOADING */
-.loading-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    gap: 20px;
-    background: var(--bg-main);
-}
-
-.loading-spinner {
-    width: 60px; height: 60px;
-    border: 4px solid var(--bg-secondary);
-    border-top-color: var(--accent);
-    border-right-color: var(--accent-dark);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    box-shadow: 0 0 30px rgba(230,57,70,0.3);
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.loading-screen p {
-    color: var(--text-secondary);
-    font-weight: 700;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 1.05rem;
-}
-
-/* GAME DETAIL */
-.back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg-secondary);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border: 1px solid var(--border);
-    margin-bottom: 16px;
-    transition: all 0.3s;
-}
-
-.back-btn:hover, .back-btn:active {
-    background: var(--accent-gradient);
-    border-color: transparent;
-    box-shadow: var(--shadow-red);
-}
-
-.game-hero {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #000;
-    margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 60px rgba(230,57,70,0.15);
-}
-
-.game-hero::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(10,10,15,0.7) 70%, rgba(10,10,15,0.98) 100%);
-}
-
-.game-hero-content {
-    position: absolute; bottom: 0; right: 0; left: 0;
-    padding: 20px;
-    z-index: 2;
-    display: flex;
-    gap: 16px;
-    align-items: flex-end;
-}
-
-.game-cover-box {
-    width: 90px;
-    flex-shrink: 0;
-    aspect-ratio: 2/3;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    border: 2px solid var(--accent);
-    transform: translateY(-8px);
-}
-
-.game-cover-box img { width: 100%; height: 100%; object-fit: cover; }
-
-.game-hero-info { flex: 1; padding-bottom: 4px; }
-
-.game-hero-info h1 {
-    font-family: 'Reem Kufi', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 10px;
-    line-height: 1.2;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-}
-
-.game-meta { display: flex; gap: 16px; flex-wrap: wrap; }
-.meta-item { display: flex; flex-direction: column; gap: 2px; }
-.meta-label { font-size: 0.6rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
-.meta-value { font-size: 0.72rem; font-weight: 700; color: #fff; line-height: 1.3; }
-
-.detail-section {
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 16px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-}
-
-.detail-section::before {
-    content: '';
-    position: absolute; top: 0; right: 0; left: 0;
-    height: 2px;
-    background: var(--accent-gradient);
-}
-
-.detail-section h2 {
-    font-family: 'Reem Kufi', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-}
-
-.detail-section h2 i { color: var(--accent-light); font-size: 1rem; }
-
-.detail-section p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; white-space: pre-line; }
-
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-}
-
-.video-wrapper iframe {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    border: none;
-}
-
-.platform-title {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--accent-light);
-    margin: 16px 0 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.platform-title:first-child { margin-top: 0; }
-
-.variants-list { display: flex; flex-direction: column; gap: 8px; }
-
-.variant-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: all 0.3s;
-    cursor: pointer;
-    position: relative;
-}
-
-.variant-item:active { transform: scale(0.98); border-color: var(--accent); }
-.variant-item:hover { border-color: var(--accent); box-shadow: var(--shadow-red); }
-
-/* ============================================
-   ✨ NEW: Unavailable Variant Style (زي الصورة)
-   ============================================ */
-.variant-item.out-of-stock {
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-color: rgba(230,57,70,0.25);
-    background: rgba(21,5,8,0.5);
-}
-
-.variant-item.out-of-stock::before {
-    content: 'UNAVAILABLE';
-    position: absolute;
-    top: 8px;
-    right: 14px;
-    font-size: 0.58rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: var(--accent);
-    text-transform: uppercase;
-    opacity: 0.9;
-}
-
-.variant-item.out-of-stock:hover {
-    border-color: rgba(230,57,70,0.25);
-    box-shadow: none;
-    transform: none;
-}
-
-.variant-item.out-of-stock .variant-title {
-    color: #7a6a6e;
-}
-
-.variant-item.out-of-stock .variant-region {
-    color: #5a4a4e;
-}
-
-.variant-item.out-of-stock .variant-price {
-    color: #7a6a6e;
-}
-
-.variant-item.out-of-stock .variant-old-price {
-    color: #5a4a4e;
-}
-
-.variant-item.out-of-stock .variant-price-box {
-    text-align: left;
-}
-
-/* ============================================ */
-
-.variant-info { display: flex; flex-direction: column; gap: 3px; flex: 1; }
-.variant-title { font-weight: 700; font-size: 0.82rem; color: #fff; }
-.variant-region { font-size: 0.7rem; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; }
-
-.variant-price-box { text-align: left; display: flex; flex-direction: column; gap: 2px; }
-.variant-old-price {
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    text-decoration: line-through;
-}
-.variant-price {
-    font-size: 1rem;
-    font-weight: 900;
-    color: var(--accent-light);
-    font-family: 'Reem Kufi', sans-serif;
+.btn-primary:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 55px rgba(244, 208, 63, 0.7);
 }
 
 .btn-whatsapp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 16px;
     background: linear-gradient(135deg, #25D366, #128C7E);
     color: #fff;
-    border-radius: 14px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    transition: all 0.3s;
-    margin-top: 16px;
-    box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
 }
 
-.btn-whatsapp:hover, .btn-whatsapp:active {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(37,211,102,0.5);
+.btn-whatsapp:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 55px rgba(37, 211, 102, 0.6);
 }
 
-/* MOBILE NAV */
-.mobile-nav {
-    position: fixed;
-    bottom: 0; right: 0; left: 0;
-    background: rgba(26,10,16,0.95);
+.btn-outline {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    border: 2px solid rgba(244, 208, 63, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: rgba(244, 208, 63, 0.15);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-6px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(244, 208, 63, 0.25);
+}
+
+.stat { position: relative; }
+
+.stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 45px;
+    background: rgba(244, 208, 63, 0.3);
+}
+
+.stat h3 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    line-height: 1.2;
+}
+
+.stat p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+}
+
+/* Hero Visual */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(244, 208, 63, 0.5),
+                0 0 0 15px rgba(244, 208, 63, 0.1),
+                0 0 0 30px rgba(244, 208, 63, 0.05);
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.08);
+}
+
+.hero-image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11,11,15,0.6));
+}
+
+.floating-badge {
+    position: absolute;
+    background: rgba(20, 20, 31, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border);
-    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
-    z-index: 999;
+    border: 1px solid rgba(244, 208, 63, 0.4);
+    padding: 14px 22px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(244, 208, 63, 0.2);
+    z-index: 3;
+}
+
+.floating-badge i {
+    color: var(--amber);
+    font-size: 1.3rem;
+}
+
+.badge-1 { top: 5%; right: -10%; animation-delay: 0s; }
+.badge-2 { bottom: 22%; left: -14%; animation-delay: 1.5s; }
+.badge-3 { bottom: 5%; right: -8%; animation-delay: 0.8s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ========== TRUST BAR ========== */
+.trust-bar {
+    background: var(--dark-2);
+    padding: 35px 0;
+    border-top: 1px solid rgba(244, 208, 63, 0.15);
+    border-bottom: 1px solid rgba(244, 208, 63, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-inner {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.5), 0 -4px 30px rgba(230,57,70,0.1);
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.mobile-nav-item {
+.trust-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 4px;
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-size: 0.7rem;
+    gap: 14px;
+    color: #fff;
     font-weight: 700;
-    transition: all 0.3s;
-    border-radius: 12px;
-    cursor: pointer;
+    font-size: 1rem;
 }
 
-.mobile-nav-item i { font-size: 1.2rem; }
-
-.mobile-nav-item.active {
-    color: var(--accent-light);
-    background: var(--accent-gradient-soft);
+.trust-item i {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--gold), var(--amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* RESPONSIVE */
-@media (min-width: 640px) {
-    .container { padding: 0 24px; }
-    .games-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .hero-content h2 { font-size: 2.2rem; }
-    .game-hero-info h1 { font-size: 1.8rem; }
-    .game-cover-box { width: 120px; }
-    .game-info h3 { font-size: 0.95rem; min-height: 40px; }
+/* ========== SECTION TITLE ========== */
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
 }
 
-@media (min-width: 1024px) {
-    .container { padding: 0 32px; }
-    .navbar { padding: 16px 0; }
-    .logo-text h1 { font-size: 1.5rem; }
-    .logo-icon { width: 52px; height: 52px; font-size: 1.6rem; }
-    .hero-slider { aspect-ratio: 16/6; border-radius: 24px; }
-    .hero-content { padding: 40px 50px; max-width: 600px; }
-    .hero-content h2 { font-size: 3rem; }
-    .hero-content .hero-price { font-size: 1.2rem; }
-    .btn-hero { padding: 16px 40px; font-size: 1rem; }
-    .games-grid { grid-template-columns: repeat(5, 1fr); gap: 20px; }
-    .section { padding: 50px 0; }
-    .section-header h2 { font-size: 1.8rem; }
-    .game-hero { aspect-ratio: 16/5; border-radius: 24px; }
-    .game-hero-content { padding: 40px; gap: 30px; }
-    .game-cover-box { width: 180px; transform: translateY(-20px); }
-    .game-hero-info h1 { font-size: 2.5rem; }
-    .meta-label { font-size: 0.72rem; }
-    .meta-value { font-size: 0.85rem; }
-    .game-detail-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
-    .mobile-nav { display: none; }
-    body { padding-bottom: 0; }
+.section-title .subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(244, 208, 63, 0.15), rgba(230, 168, 23, 0.15));
+    color: var(--gold-dark);
+    padding: 10px 26px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(244, 208, 63, 0.4);
 }
 
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-main); }
-::-webkit-scrollbar-thumb { background: var(--accent-gradient); border-radius: 10px; }
+.section-title h2 {
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: var(--dark);
+    font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+.section-title h2 .gradient-text {
+    background: linear-gradient(135deg, var(--gold-dark), var(--honey), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-title p {
+    color: var(--text-light);
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
 </style>
 </head>
 <body>
 
-<div class="loading-screen" id="loadingScreen">
-    <div class="loading-spinner"></div>
-    <p>جاري تحميل الألعاب...</p>
+<!-- ========== PRELOADER ========== -->
+<div class="preloader hidden" id="preloader">
+    <div class="preloader-content">
+        <div class="gem-loader">💎</div>
+        <div class="loader-text">كنوز الطبيعة</div>
+    </div>
 </div>
 
-<div id="mainContent" style="display: none;">
+<!-- ========== FLOATING WHATSAPP ========== -->
+<a href="https://wa.me/201274664606" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo" onclick="showPage('home')">
-                <div class="logo-icon"><i class="fas fa-crown"></i></div>
-                <div class="logo-text">
-                    <h1>SAMURAI</h1>
-                    <span>STORE</span>
-                </div>
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-gem"></i>
             </div>
-            <div class="nav-actions">
-                <button class="nav-icon-btn" onclick="showPage('all-games')" aria-label="البحث">
-                    <i class="fas fa-search"></i>
-                </button>
-                <a href="https://wa.me/201021386007" target="_blank" class="nav-icon-btn whatsapp" aria-label="واتساب">
-                    <i class="fab fa-whatsapp"></i>
+            <span class="logo-text">كنوز الطبيعة</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">الرئيسية</a></li>
+            <li><a href="#products">منتجاتنا</a></li>
+            <li><a href="#story">قصتنا</a></li>
+            <li><a href="#features">لماذا نحن</a></li>
+            <li><a href="#testimonials">آراء العملاء</a></li>
+            <li><a href="https://wa.me/201274664606" target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> اطلب الآن</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=1920&amp;q=80" alt="عسل طبيعي">
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="badge-top reveal active">
+                <i class="fas fa-star"></i>
+                <span>الأفضل تقييماً في المملكة 2024</span>
+            </div>
+            <h1 class="reveal reveal-delay-1 active">كنوز <span class="highlight">الطبيعة</span><br>من أجود أنواع العسل</h1>
+            <p class="reveal reveal-delay-2 active">من مناحلنا الخاصة إلى مائدتك، نقدم لك عسلاً خاماً <strong>100% طبيعي</strong> بدون أي إضافات أو مواد حافظة. كنوز حقيقية من قلب الطبيعة.</p>
+            <div class="hero-buttons reveal reveal-delay-3 active">
+                <a href="#products" class="btn btn-primary">
+                    <i class="fas fa-shopping-bag"></i> تسوق الآن
+                </a>
+                <a href="https://wa.me/201274664606" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> تواصل واتساب
                 </a>
             </div>
+            <div class="hero-stats reveal reveal-delay-4">
+                <div class="stat"><h3>+15</h3><p>سنة خبرة</p></div>
+                <div class="stat"><h3>+50</h3><p>نوع عسل</p></div>
+                <div class="stat"><h3>+10K</h3><p>عميل سعيد</p></div>
+            </div>
         </div>
-    </nav>
-
-    <div id="page-home" class="page active">
-
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-slider" id="heroSlider"></div>
+        <div class="hero-visual reveal reveal-delay-2 active">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1471943311424-646960669fbc?w=800&amp;q=80" alt="جرة عسل طبيعي">
             </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Pre-Order</h2>
-                    <button class="view-all-btn" onclick="filterFromNav('pre')">
-                        عرض الكل <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="games-grid" id="preGrid"></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>الأكثر مبيعاً</h2>
-                    <button class="view-all-btn" onclick="filterFromNav('hot')">
-                        عرض الكل <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="games-grid" id="hotGrid"></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>PlayStation Plus</h2>
-                    <button class="view-all-btn" onclick="filterFromNav('subscriptions')">
-                        عرض الكل <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="games-grid" id="subsGrid"></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>الإكسسوارات</h2>
-                    <button class="view-all-btn" onclick="filterFromNav('accessories')">
-                        عرض الكل <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="games-grid" id="accGrid"></div>
-            </div>
-        </section>
-
+            <div class="floating-badge badge-1"><i class="fas fa-award"></i><span>جودة مضمونة</span></div>
+            <div class="floating-badge badge-2"><i class="fas fa-leaf"></i><span>طبيعي 100%</span></div>
+            <div class="floating-badge badge-3"><i class="fas fa-truck-fast"></i><span>توصيل مجاني</span></div>
+        </div>
     </div>
+</section>
 
-    <div id="page-all-games" class="page">
-
-        <section class="search-section">
-            <div class="container">
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="ابحث عن لعبة..." autocomplete="off">
-                    <i class="fas fa-search"></i>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <div class="filters-bar">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="pre">Pre-Order</button>
-                <button class="filter-btn" data-filter="hot">الأكثر مبيعاً</button>
-                <button class="filter-btn" data-filter="subscriptions">الاشتراكات</button>
-                <button class="filter-btn" data-filter="accessories">الإكسسوارات</button>
-                <button class="filter-btn" data-filter="other">أخرى</button>
-            </div>
-
-            <div class="results-count">
-                <span>عرض <strong id="resultsCount">0</strong> منتج</span>
-                <span id="totalCount"></span>
-            </div>
+<!-- ========== TRUST BAR ========== -->
+<section class="trust-bar">
+    <div class="container">
+        <div class="trust-inner">
+            <div class="trust-item"><i class="fas fa-shield-halved"></i><span>ضمان استرجاع 30 يوم</span></div>
+            <div class="trust-item"><i class="fas fa-truck-fast"></i><span>توصيل مجاني للطلبات +200 ر.س</span></div>
+            <div class="trust-item"><i class="fas fa-award"></i><span>معتمد من هيئة الغذاء والدواء</span></div>
+            <div class="trust-item"><i class="fas fa-headset"></i><span>دعم 24/7</span></div>
         </div>
-
-        <section class="section" style="padding-top: 0;">
-            <div class="container">
-                <div class="games-grid" id="allGamesGrid"></div>
-
-                <div class="load-more-container" id="loadMoreContainer">
-                    <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">
-                        عرض المزيد <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-
-                <div class="no-results" id="noResults">
-                    <i class="fas fa-search"></i>
-                    <h3>لا توجد نتائج</h3>
-                    <p>جرب كلمة بحث أخرى</p>
-                </div>
-            </div>
-        </section>
-
     </div>
+</section>
 
-    <div id="page-game" class="page">
-        <section class="section">
-            <div class="container">
-                <button class="back-btn" onclick="goBack()">
-                    <i class="fas fa-arrow-right"></i> رجوع
-                </button>
-                <div id="gameDetailContent"></div>
+<!-- ========== PRODUCTS ========== -->
+<section class="products" id="products" style="padding:140px 0;background:var(--cream);position:relative;overflow:hidden;">
+    <div class="container">
+        <div class="section-title reveal">
+            <span class="subtitle"><i class="fas fa-gem"></i> منتجاتنا الفاخرة</span>
+            <h2>تشكيلة <span class="gradient-text">كنوز الطبيعة</span></h2>
+            <p>اكتشف مجموعتنا المختارة بعناية من أجود أنواع العسل الطبيعي</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;position:relative;z-index:2;">
+            <!-- Product 1 -->
+            <div class="product-card reveal" style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.06);transition:var(--transition);border:1px solid rgba(244,208,63,0.15);">
+                <div style="position:relative;height:300px;overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&amp;q=80" alt="عسل السدر" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+                    <span style="position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--dark);padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:800;box-shadow:0 6px 20px rgba(244,208,63,0.5);">🔥 الأكثر مبيعاً</span>
+                </div>
+                <div style="padding:28px;">
+                    <div style="display:flex;gap:3px;margin-bottom:12px;"><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i></div>
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:10px;font-family:'Reem Kufi',sans-serif;">عسل السدر الجبلي</h3>
+                    <p style="color:var(--text-light);font-size:0.92rem;margin-bottom:18px;line-height:1.7;">عسل خام من مناحل جبال السروات، غني بالمعادن ومضادات الأكسدة</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px dashed rgba(244,208,63,0.4);">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--gold-dark);font-family:'Reem Kufi',sans-serif;">250 <small style="font-size:0.8rem;color:var(--text-light);font-weight:400;">ر.س</small></div>
+                        <a href="https://wa.me/201274664606?text=أريد طلب عسل السدر الجبلي" target="_blank" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;transition:var(--transition);box-shadow:0 8px 20px rgba(37,211,102,0.4);text-decoration:none;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
 
-    <div class="mobile-nav">
-        <div class="mobile-nav-item active" onclick="showPage('home')" id="mobHome">
-            <i class="fas fa-home"></i>
-            <span>الرئيسية</span>
+            <!-- Product 2 -->
+            <div class="product-card reveal reveal-delay-1" style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.06);transition:var(--transition);border:1px solid rgba(244,208,63,0.15);">
+                <div style="position:relative;height:300px;overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&amp;q=80" alt="عسل المانوكا" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s;" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+                    <span style="position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--dark);padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:800;box-shadow:0 6px 20px rgba(244,208,63,0.5);">✨ فاخر</span>
+                </div>
+                <div style="padding:28px;">
+                    <div style="display:flex;gap:3px;margin-bottom:12px;"><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star-half-alt" style="color:var(--gold);font-size:0.9rem;"></i></div>
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:10px;font-family:'Reem Kufi',sans-serif;">عسل المانوكا النيوزيلندي</h3>
+                    <p style="color:var(--text-light);font-size:0.92rem;margin-bottom:18px;line-height:1.7;">عسل مانوكا أصلي بدرجة MGO 850+، معروف بخصائصه العلاجية</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px dashed rgba(244,208,63,0.4);">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--gold-dark);font-family:'Reem Kufi',sans-serif;">480 <small style="font-size:0.8rem;color:var(--text-light);font-weight:400;">ر.س</small></div>
+                        <a href="https://wa.me/201274664606?text=أريد طلب عسل المانوكا" target="_blank" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,0.4);text-decoration:none;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card reveal reveal-delay-2" style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.06);transition:var(--transition);border:1px solid rgba(244,208,63,0.15);">
+                <div style="position:relative;height:300px;overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1471943311424-646960669fbc?w=600&amp;q=80" alt="عسل الأكاسيا" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s;" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+                    <span style="position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--dark);padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:800;box-shadow:0 6px 20px rgba(244,208,63,0.5);">🆕 جديد</span>
+                </div>
+                <div style="padding:28px;">
+                    <div style="display:flex;gap:3px;margin-bottom:12px;"><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i></div>
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:10px;font-family:'Reem Kufi',sans-serif;">عسل الأكاسيا الذهبي</h3>
+                    <p style="color:var(--text-light);font-size:0.92rem;margin-bottom:18px;line-height:1.7;">عسل فاتح اللون بنكهة زهرية رقيقة، مثالي للتحلية والتخسيس</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px dashed rgba(244,208,63,0.4);">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--gold-dark);font-family:'Reem Kufi',sans-serif;">180 <small style="font-size:0.8rem;color:var(--text-light);font-weight:400;">ر.س</small></div>
+                        <a href="https://wa.me/201274664606?text=أريد طلب عسل الأكاسيا الذهبي" target="_blank" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,0.4);text-decoration:none;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card reveal reveal-delay-3" style="background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.06);transition:var(--transition);border:1px solid rgba(244,208,63,0.15);">
+                <div style="position:relative;height:300px;overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&amp;q=80" alt="عسل الزهور البرية" style="width:100%;height:100%;object-fit:cover;transition:transform 1.2s;" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+                    <span style="position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--dark);padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:800;box-shadow:0 6px 20px rgba(244,208,63,0.5);">🌿 طبيعي</span>
+                </div>
+                <div style="padding:28px;">
+                    <div style="display:flex;gap:3px;margin-bottom:12px;"><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star" style="color:var(--gold);font-size:0.9rem;"></i><i class="fas fa-star-half-alt" style="color:var(--gold);font-size:0.9rem;"></i></div>
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:10px;font-family:'Reem Kufi',sans-serif;">عسل الزهور البرية</h3>
+                    <p style="color:var(--text-light);font-size:0.92rem;margin-bottom:18px;line-height:1.7;">خلطة فريدة من رحيق الزهور البرية، نكهة غنية وعميقة</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px dashed rgba(244,208,63,0.4);">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--gold-dark);font-family:'Reem Kufi',sans-serif;">150 <small style="font-size:0.8rem;color:var(--text-light);font-weight:400;">ر.س</small></div>
+                        <a href="https://wa.me/201274664606?text=أريد طلب عسل الزهور البرية" target="_blank" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,0.4);text-decoration:none;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mobile-nav-item" onclick="showPage('all-games')" id="mobGames">
-            <i class="fas fa-gamepad"></i>
-            <span>المنتجات</span>
-        </div>
-        <a href="https://wa.me/201021386007" target="_blank" class="mobile-nav-item">
-            <i class="fab fa-whatsapp"></i>
-            <span>واتساب</span>
+    </div>
+</section>
+
+<!-- ========== CTA WITH WHATSAPP ========== -->
+<section style="padding:130px 0;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--honey) 40%,var(--gold) 70%,var(--amber) 100%);background-size:300% 300%;animation:gradientShift 8s ease infinite;position:relative;overflow:hidden;text-align:center;">
+    <div class="container" style="position:relative;z-index:2;">
+        <h2 class="reveal" style="font-size:3.5rem;font-weight:900;color:#fff;margin-bottom:22px;font-family:'Reem Kufi',sans-serif;text-shadow:0 4px 30px rgba(0,0,0,0.15);">جاهز لتجربة العسل الأصلي؟</h2>
+        <p class="reveal reveal-delay-1" style="color:rgba(255,255,255,0.95);font-size:1.2rem;margin-bottom:40px;max-width:620px;margin-left:auto;margin-right:auto;">اطلب الآن واحصل على خصم 15% على أول طلب، مع توصيل مجاني لجميع مناطق المملكة</p>
+        <a href="https://wa.me/201274664606?text=أريد الاستفسار عن منتجات كنوز الطبيعة" target="_blank" class="btn reveal reveal-delay-2" style="background:#fff;color:var(--gold-dark);box-shadow:0 15px 40px rgba(0,0,0,0.2);font-size:1.15rem;padding:20px 48px;display:inline-flex;align-items:center;gap:12px;border-radius:50px;text-decoration:none;font-weight:800;">
+            <i class="fab fa-whatsapp" style="font-size:1.5rem;color:#25D366;"></i> تواصل معنا واتساب
         </a>
     </div>
+</section>
 
-</div>
+<!-- ========== FOOTER ========== -->
+<footer style="background:var(--dark);color:rgba(255,255,255,0.7);padding:90px 0 0;position:relative;">
+    <div class="container">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <div>
+                <a href="#" class="logo" style="margin-bottom:24px;">
+                    <div class="logo-icon"><i class="fas fa-gem"></i></div>
+                    <span class="logo-text">كنوز الطبيعة</span>
+                </a>
+                <p style="font-size:0.95rem;line-height:1.9;margin-bottom:28px;max-width:340px;">منذ أكثر من 15 عاماً، نقدم أجود أنواع العسل الطبيعي المستخلص من أنقى المناحل حول العالم. جودة تليق بكم.</p>
+                <div style="display:flex;gap:12px;">
+                    <a href="https://wa.me/201274664606" target="_blank" style="width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:26px;font-family:'Reem Kufi',sans-serif;position:relative;padding-bottom:12px;">روابط سريعة</h3>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:14px;"><a href="#home" style="color:rgba(255,255,255,0.6);text-decoration:none;">الرئيسية</a></li>
+                    <li style="margin-bottom:14px;"><a href="#products" style="color:rgba(255,255,255,0.6);text-decoration:none;">منتجاتنا</a></li>
+                    <li style="margin-bottom:14px;"><a href="#story" style="color:rgba(255,255,255,0.6);text-decoration:none;">قصتنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:26px;font-family:'Reem Kufi',sans-serif;position:relative;padding-bottom:12px;">خدمة العملاء</h3>
+                <ul style="list-style:none;">
+                    <li style="margin-bottom:14px;"><a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;">سياسة الاسترجاع</a></li>
+                    <li style="margin-bottom:14px;"><a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;">الشحن والتوصيل</a></li>
+                    <li style="margin-bottom:14px;"><a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:26px;font-family:'Reem Kufi',sans-serif;position:relative;padding-bottom:12px;">تواصل معنا</h3>
+                <ul style="list-style:none;">
+                    <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;font-size:0.95rem;"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-top:5px;"></i> الرياض، المملكة العربية السعودية</li>
+                    <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;font-size:0.95rem;"><i class="fab fa-whatsapp" style="color:#25D366;margin-top:5px;font-size:1.2rem;"></i> <a href="https://wa.me/201274664606" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:700;">01274664606</a></li>
+                    <li style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;font-size:0.95rem;"><i class="fas fa-envelope" style="color:var(--gold);margin-top:5px;"></i> info@kanz-altabia.com</li>
+                </ul>
+            </div>
+        </div>
+        <div style="padding:30px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.9rem;">
+            <p>© 2024 كنوز الطبيعة. جميع الحقوق محفوظة.</p>
+            <p>صُنع بـ <i class="fas fa-heart" style="color:var(--gold);"></i> في المملكة العربية السعودية</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== BACK TO TOP ========== -->
+<button id="backToTop" style="position:fixed;bottom:30px;left:30px;width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--dark);border:none;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(244,208,63,0.5);transition:var(--transition);opacity:0;visibility:hidden;z-index:999;" aria-label="العودة للأعلى">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<style>
+.reveal { opacity: 0; transform: translateY(60px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+.product-card:hover { transform: translateY(-15px) !important; box-shadow: 0 30px 80px rgba(244,208,63,0.4) !important; border-color: rgba(244,208,63,0.5) !important; }
+@media (max-width: 1024px) {
+    .hero .container { grid-template-columns: 1fr !important; text-align: center !important; gap: 50px !important; }
+    .hero-content h1 { font-size: 3.2rem !important; }
+    .hero-content p { margin: 0 auto 36px !important; }
+    .hero-buttons { justify-content: center !important; }
+    .hero-stats { justify-content: center !important; }
+    .hero-visual { order: -1; }
+    .hero-image-container { max-width: 380px; }
+    .floating-badge { display: none; }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed !important; top: 0 !important; right: -100% !important;
+        width: 85% !important; max-width: 380px !important; height: 100vh !important;
+        background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%) !important;
+        flex-direction: column !important; padding: 110px 30px 30px !important;
+        box-shadow: -10px 0 50px rgba(0,0,0,0.3) !important; transition: var(--transition) !important;
+        gap: 6px !important; align-items: stretch !important; z-index: 1000 !important;
+    }
+    .nav-links.open { right: 0 !important; }
+    .nav-links a { padding: 16px 22px !important; border-radius: 14px !important; background: rgba(244,208,63,0.05) !important; border: 1px solid rgba(244,208,63,0.15) !important; }
+    .menu-toggle { display: block !important; z-index: 1001 !important; }
+    .hero-content h1 { font-size: 2.4rem !important; }
+    .hero-stats { flex-direction: column !important; gap: 20px !important; align-items: center !important; }
+    .stat:not(:last-child)::after { display: none !important; }
+    .section-title h2 { font-size: 2.2rem !important; }
+    .whatsapp-float { width: 55px; height: 55px; font-size: 1.7rem; bottom: 20px; right: 20px; }
+}
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.9rem !important; }
+    .btn { padding: 15px 28px !important; font-size: 0.95rem !important; }
+    .section-title h2 { font-size: 1.8rem !important; }
+}
+</style>
 
 <script>
-// ============================================
-// ⚙️ الإعدادات
-// ============================================
-const WHATSAPP_NUMBER = '201021386007';
-const SAMURAI_BASE_URL = 'https://samuraistore.site';
-const GAMES_PER_PAGE = 20;
+// ========== PRELOADER ==========
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('preloader').classList.add('hidden');
+    }, 1200);
+});
 
-// الروابط (3 ملفات Samurai فقط — لا يوجد Breakers)
-const SAMURAI_GAMES_URL = 'https://cdn.jsdelivr.net/gh/ahmedabdelmeniem51-oss/mm@main/samurai-games-425.json';
-const SAMURAI_SUBS_URL = 'https://cdn.jsdelivr.net/gh/ahmedabdelmeniem51-oss/mm@main/samurai-subscriptions-9.json';
-const SAMURAI_ACC_URL = 'https://cdn.jsdelivr.net/gh/ahmedabdelmeniem51-oss/mm@main/samurai-accessories-1.json';
+// ========== NAVBAR SCROLL ==========
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    navbar.classList.toggle('scrolled', scrollY > 50);
+    backToTop.style.opacity = scrollY > 500 ? '1' : '0';
+    backToTop.style.visibility = scrollY > 500 ? 'visible' : 'hidden';
+});
 
-// ============================================
-// البيانات
-// ============================================
-let gamesData = [];
-let previousPage = 'home';
-let currentSlide = 0;
-let totalSlides = 0;
-let sliderInterval;
-let currentFilter = 'all';
-let currentQuery = '';
-let displayedCount = GAMES_PER_PAGE;
-
-// ============================================
-// أدوات مساعدة
-// ============================================
-function getEmbedUrl(url) {
-    if (!url) return '';
-    let videoId = '';
-    if (url.includes('youtu.be/')) {
-        videoId = url.split('youtu.be/')[1].split('?')[0];
-    } else if (url.includes('youtube.com/watch')) {
-        try { videoId = new URL(url).searchParams.get('v'); } catch(e) { videoId = ''; }
-    } else if (url.includes('youtube.com/embed/')) {
-        videoId = url.split('youtube.com/embed/')[1].split('?')[0];
-    }
-    return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : '';
-}
-
-function fixImageUrl(path) {
-    if (!path) return '';
-    if (path.startsWith('http')) return path;
-    return SAMURAI_BASE_URL + path;
-}
-
-function escapeHtml(text) {
-    if (!text) return '';
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-function formatPrice(price) {
-    if (typeof price !== 'number') price = 0;
-    return price.toLocaleString('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+// ========== MOBILE MENU ==========
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const menuIcon = menuToggle.querySelector('i');
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-times');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuIcon.classList.add('fa-bars');
+        menuIcon.classList.remove('fa-times');
     });
-}
+});
 
-const PLACEHOLDER_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%231A0A10"/><stop offset="100%" style="stop-color:%230A0A0F"/></linearGradient></defs><rect width="300" height="450" fill="url(%23g)"/><text x="150" y="225" text-anchor="middle" fill="%23E63946" font-size="70">🎮</text><text x="150" y="290" text-anchor="middle" fill="%23B8A0A5" font-size="14" font-family="Tajawal">صورة غير متوفرة</text></svg>`)}`;
-
-// ============================================
-// 🎮 1. تحويل منتجات Samurai Games (425)
-// ============================================
-function transformSamuraiGame(product) {
-    let category = 'other';
-    let badge = { text: 'متاح', type: 'badge-other' };
-    
-    if (product.preorder) {
-        category = 'pre';
-        badge = { text: 'Pre-Order', type: 'badge-pre' };
-    } else if (product.isTopSeller) {
-        category = 'hot';
-        badge = { text: 'الأكثر مبيعاً', type: 'badge-hot' };
-    } else if (product.limitedOffer) {
-        category = 'hot';
-        badge = { text: 'عرض خاص', type: 'badge-hot' };
-    }
-    
-    const variants = (product.variants || [])
-        .map(v => {
-            const originalPrice = v.oldPrice || v.price;
-            const finalPrice = v.price;
-            const hasDiscount = v.oldPrice && v.oldPrice > v.price;
-            
-            return {
-                title: v.nameAr || v.name || 'نسخة',
-                platform: v.accountType || v.platform || 'PlayStation',
-                region: v.region || 'GLOBAL',
-                originalPrice: originalPrice,
-                price: finalPrice,
-                hasDiscount: hasDiscount,
-                discountPercentage: v.discount || 0,
-                stock: v.stock > 0 && v.isActive
-            };
-        });
-    
-    return {
-        id: product.id,
-        source: 'samurai',
-        title: product.titleAr || product.title,
-        titleEn: product.title,
-        slug: product.slug,
-        description: product.descriptionAr || product.description || '',
-        cover: fixImageUrl(product.image),
-        hero: fixImageUrl(product.image),
-        video: (product.videos && product.videos[0]) ? (product.videos[0].url || product.videos[0]) : '',
-        category: category,
-        badge: badge.text,
-        badgeType: badge.type,
-        space: product.gameSizeGb ? product.gameSizeGb + ' GB' : '',
-        platforms: product.platform || 'PlayStation',
-        genres: (product.genres || []).join(' / '),
-        variants: variants
-    };
-}
-
-// ============================================
-// 📦 2. تحويل منتجات Samurai Subscriptions (9)
-// ============================================
-function transformSubscription(product) {
-    const variants = (product.variants || [])
-        .map(v => ({
-            title: v.nameAr || v.name || 'نسخة',
-            platform: v.accountType || v.platform || 'PlayStation',
-            region: v.region || 'GLOBAL',
-            originalPrice: v.price,
-            price: v.price,
-            hasDiscount: false,
-            discountPercentage: 0,
-            stock: v.stock > 0 || !v.trackStock
-        }));
-    
-    return {
-        id: product.id,
-        source: 'subscription',
-        title: product.titleAr || product.title,
-        titleEn: product.title,
-        slug: product.slug,
-        description: product.descriptionAr || product.description || '',
-        cover: fixImageUrl(product.image),
-        hero: fixImageUrl(product.image),
-        video: (product.videos && product.videos[0]) ? product.videos[0].url : '',
-        category: 'subscriptions',
-        badge: 'اشتراك',
-        badgeType: 'badge-sub',
-        space: '',
-        platforms: 'PlayStation',
-        genres: product.subcategory || 'subscription',
-        variants: variants
-    };
-}
-
-// ============================================
-// 🎧 3. تحويل منتجات Samurai Accessories (1+)
-// ============================================
-function transformAccessory(product) {
-    const variants = (product.variants || [])
-        .map(v => ({
-            title: v.nameAr || v.name || 'نسخة',
-            platform: v.accountType || v.platform || 'PlayStation',
-            region: v.region || 'GLOBAL',
-            originalPrice: v.price,
-            price: v.price,
-            hasDiscount: false,
-            discountPercentage: 0,
-            stock: v.stock > 0 || !v.trackStock
-        }));
-    
-    if (variants.length === 0 && product.price) {
-        variants.push({
-            title: 'المنتج',
-            platform: 'PlayStation',
-            region: 'GLOBAL',
-            originalPrice: product.oldPrice || product.price,
-            price: product.price,
-            hasDiscount: product.oldPrice && product.oldPrice > product.price,
-            discountPercentage: product.discount || 0,
-            stock: true
-        });
-    }
-    
-    return {
-        id: product.id,
-        source: 'accessory',
-        title: product.titleAr || product.title,
-        titleEn: product.title,
-        slug: product.slug,
-        description: product.descriptionAr || product.description || '',
-        cover: fixImageUrl(product.image),
-        hero: fixImageUrl(product.image),
-        video: (product.videos && product.videos[0]) ? product.videos[0].url : '',
-        category: 'accessories',
-        badge: 'إكسسوار',
-        badgeType: 'badge-acc',
-        space: '',
-        platforms: product.platform || 'PlayStation',
-        genres: product.subcategory || 'accessories',
-        variants: variants
-    };
-}
-
-// ============================================
-// 🚀 تحميل كل البيانات (3 ملفات Samurai فقط)
-// ============================================
-async function loadAllData() {
-    try {
-        console.log('⏳ جاري تحميل البيانات...');
-        
-        const [samuraiRes, subsRes, accRes] = await Promise.all([
-            fetch(SAMURAI_GAMES_URL).then(r => r.json()).catch(e => { console.warn('Samurai games failed', e); return { products: [] }; }),
-            fetch(SAMURAI_SUBS_URL).then(r => r.json()).catch(e => { console.warn('Subs failed', e); return { products: [] }; }),
-            fetch(SAMURAI_ACC_URL).then(r => r.json()).catch(e => { console.warn('Acc failed', e); return { products: [] }; })
-        ]);
-        
-        const samuraiProducts = samuraiRes.data?.products || samuraiRes.products || samuraiRes || [];
-        console.log('✅ Samurai Games:', samuraiProducts.length);
-        
-        const subsProducts = subsRes.data?.products || subsRes.products || [];
-        console.log('✅ Subscriptions:', subsProducts.length);
-        
-        const accProducts = accRes.data?.products || accRes.products || [];
-        console.log('✅ Accessories:', accProducts.length);
-        
-        const mergedGames = samuraiProducts
-            .map(transformSamuraiGame)
-            .filter(g => g.title && g.variants.length > 0);
-        
-        const subscriptions = subsProducts
-            .map(transformSubscription)
-            .filter(s => s.title && s.variants.length > 0);
-        
-        const accessories = accProducts
-            .map(transformAccessory)
-            .filter(a => a.title && a.variants.length > 0);
-        
-        gamesData = [...mergedGames, ...subscriptions, ...accessories];
-        
-        console.log('🎉 الإجمالي:', gamesData.length);
-        console.log('   - ألعاب:', mergedGames.length);
-        console.log('   - اشتراكات:', subscriptions.length);
-        console.log('   - إكسسوارات:', accessories.length);
-        
-        return true;
-    } catch (err) {
-        console.error('❌ فشل التحميل:', err);
-        return false;
-    }
-}
-
-// ============================================
-// Hero Slider
-// ============================================
-function renderHeroSlider() {
-    const slider = document.getElementById('heroSlider');
-    if (!slider) return;
-    
-    const heroGames = gamesData
-        .filter(g => g.hero && g.variants.length > 0 && g.source === 'samurai')
-        .slice(0, 5);
-    
-    totalSlides = heroGames.length;
-    if (totalSlides === 0) {
-        slider.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#B8A0A5;">لا توجد ألعاب</div>';
-        return;
-    }
-
-    let slidesHTML = '';
-    let dotsHTML = '';
-
-    heroGames.forEach((game, index) => {
-        const availableVariants = game.variants.filter(v => v.stock);
-        const minPrice = availableVariants.length
-            ? Math.min(...availableVariants.map(v => v.price))
-            : Math.min(...game.variants.map(v => v.price));
-
-        slidesHTML += `
-            <div class="hero-slide ${index === 0 ? 'active' : ''}"
-                 style="background-image: url('${game.hero}');"
-                 onclick="showGame('${game.id}')">
-                <div class="hero-content">
-                    <span class="hero-badge">${game.badge}</span>
-                    <h2>${escapeHtml(game.title)}</h2>
-                    <span class="hero-price">يبدأ من ${minPrice.toLocaleString()} ج.م</span>
-                    <button class="btn-hero">
-                        <i class="fas fa-shopping-bag"></i> اطلب الآن
-                    </button>
-                </div>
-            </div>
-        `;
-        dotsHTML += `<div class="dot ${index === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToSlide(${index})"></div>`;
-    });
-
-    slider.innerHTML = slidesHTML + `<div class="slider-dots">${dotsHTML}</div>`;
-
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(currentSlide);
-    }, 5000);
-}
-
-function goToSlide(index) {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.dot');
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    if (slides[index]) slides[index].classList.add('active');
-    if (dots[index]) dots[index].classList.add('active');
-    currentSlide = index;
-}
-
-// ============================================
-// رسم الشبكة
-// ============================================
-function renderGamesGrid(containerId, games, limit) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    const displayGames = limit ? games.slice(0, limit) : games;
-
-    if (displayGames.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary); grid-column: 1/-1; text-align: center; padding: 30px;">لا توجد منتجات</p>';
-        return;
-    }
-
-    container.innerHTML = displayGames.map(game => renderGameCard(game)).join('');
-}
-
-function renderGameCard(game) {
-    const availableVariants = game.variants.filter(v => v.stock);
-    const minPrice = availableVariants.length
-        ? Math.min(...availableVariants.map(v => v.price))
-        : (game.variants.length ? Math.min(...game.variants.map(v => v.price)) : 0);
-
-    return `
-        <div class="game-card" onclick="showGame('${game.id}')">
-            <div class="game-image">
-                <img src="${game.cover}" alt="${escapeHtml(game.title)}" loading="lazy"
-                     onerror="this.onerror=null; this.src='${PLACEHOLDER_SVG}'">
-                <span class="game-badge ${game.badgeType}">${game.badge}</span>
-            </div>
-            <div class="game-info">
-                <h3>${escapeHtml(game.title)}</h3>
-                <div class="game-price">
-                    ${minPrice ? `يبدأ من ${minPrice.toLocaleString()} <small>ج.م</small>` : 'غير متاح'}
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// ============================================
-// صفحة المنتج
-// ============================================
-function showGame(gameId) {
-    const game = gamesData.find(g => g.id === gameId);
-    if (!game) return;
-
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-game').classList.add('active');
-    if (document.getElementById('mobHome')) document.getElementById('mobHome').classList.remove('active');
-    if (document.getElementById('mobGames')) document.getElementById('mobGames').classList.remove('active');
-
-    const variantsByPlatform = {};
-    game.variants.forEach(v => {
-        const key = v.platform;
-        if (!variantsByPlatform[key]) variantsByPlatform[key] = [];
-        variantsByPlatform[key].push(v);
-    });
-
-    const renderVariant = (v) => {
-        const waMsg = encodeURIComponent(
-            `السلام عليكم 🌟\nأريد شراء:\n\n🎮 ${game.title}\n📦 النسخة: ${v.title}\n💻 المنصة: ${v.platform}\n💰 السعر: ${formatPrice(v.price)} EGP`
-        );
-        const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
-
-        return `
-            <div class="variant-item ${v.stock ? '' : 'out-of-stock'}"
-                 ${v.stock ? `onclick="window.open('${waLink}', '_blank')"` : ''}>
-                <div class="variant-info">
-                    <span class="variant-title">${escapeHtml(v.title)}</span>
-                    <span class="variant-region">${escapeHtml(v.title)} • ${escapeHtml(v.platform)}</span>
-                </div>
-                <div class="variant-price-box">
-                    ${v.hasDiscount ? `<span class="variant-old-price">${formatPrice(v.originalPrice)} EGP</span>` : ''}
-                    <span class="variant-price">${formatPrice(v.price)} <small style="font-size:0.7rem;">EGP</small></span>
-                </div>
-            </div>
-        `;
-    };
-
-    let variantsHTML = '';
-    Object.keys(variantsByPlatform).forEach(platform => {
-        let platformIcon = 'gamepad';
-        let platformName = platform;
-        
-        if (platform.includes('ps5') || platform === 'PS5' || platform === 'primary-ps5') { 
-            platformIcon = 'playstation'; 
-            platformName = platform.includes('primary') ? 'Primary PS5' : 'PlayStation 5'; 
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
         }
-        else if (platform.includes('ps4') || platform === 'PS4' || platform === 'primary-ps4') { 
-            platformIcon = 'playstation'; 
-            platformName = platform.includes('primary') ? 'Primary PS4' : 'PlayStation 4'; 
-        }
-        else if (platform === 'secondary') { platformIcon = 'user-friends'; platformName = 'Secondary'; }
-        else if (platform === 'full-account') { platformIcon = 'user-check'; platformName = 'Full Account'; }
-        else if (platform === 'STEAM') { platformIcon = 'steam'; platformName = 'Steam'; }
-        else if (platform.includes('XBOX')) { platformIcon = 'xbox'; platformName = 'Xbox'; }
-
-        const iconClass = platformIcon === 'playstation' ? 'fab fa-playstation' :
-                          platformIcon === 'steam' ? 'fab fa-steam' :
-                          platformIcon === 'xbox' ? 'fab fa-xbox' :
-                          'fas fa-' + platformIcon;
-
-        variantsHTML += `
-            <div class="platform-title">
-                <i class="${iconClass}"></i>
-                ${platformName}
-            </div>
-            <div class="variants-list">
-                ${variantsByPlatform[platform].map(renderVariant).join('')}
-            </div>
-        `;
     });
+});
 
-    const embedUrl = getEmbedUrl(game.video);
-
-    document.getElementById('gameDetailContent').innerHTML = `
-        <div class="game-hero" style="background-image: url('${game.hero}');">
-            <div class="game-hero-content">
-                <div class="game-cover-box">
-                    <img src="${game.cover}" alt="${escapeHtml(game.title)}"
-                         onerror="this.onerror=null; this.src='${PLACEHOLDER_SVG}'">
-                </div>
-                <div class="game-hero-info">
-                    <h1>${escapeHtml(game.title)}</h1>
-                    <div class="game-meta">
-                        ${game.space ? `
-                        <div class="meta-item">
-                            <span class="meta-label">المساحة</span>
-                            <span class="meta-value">${game.space}</span>
-                        </div>
-                        ` : ''}
-                        ${game.platforms ? `
-                        <div class="meta-item">
-                            <span class="meta-label">المنصات</span>
-                            <span class="meta-value">${escapeHtml(game.platforms)}</span>
-                        </div>
-                        ` : ''}
-                        ${game.genres ? `
-                        <div class="meta-item">
-                            <span class="meta-label">التصنيفات</span>
-                            <span class="meta-value">${escapeHtml(game.genres)}</span>
-                        </div>
-                        ` : ''}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="game-detail-grid">
-            <div>
-                ${embedUrl ? `
-                <div class="detail-section">
-                    <h2><i class="fas fa-play-circle"></i> فيديو</h2>
-                    <div class="video-wrapper">
-                        <iframe src="${embedUrl}" allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                        </iframe>
-                    </div>
-                </div>
-                ` : ''}
-
-                <div class="detail-section">
-                    <h2><i class="fas fa-info-circle"></i> عن المنتج</h2>
-                    <p>${escapeHtml(game.description) || 'لا يوجد وصف'}</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="detail-section">
-                    <h2><i class="fas fa-shopping-cart"></i> اختر النسخة</h2>
-                    ${variantsHTML}
-
-                    <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" class="btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> اطلب الآن عبر واتساب
-                    </a>
-                </div>
-            </div>
-        </div>
-    `;
-
+// ========== BACK TO TOP ==========
+backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+});
 
-// ============================================
-// التنقل
-// ============================================
-function showPage(pageName) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const target = document.getElementById('page-' + pageName);
-    if (target) target.classList.add('active');
-
-    document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
-    if (pageName === 'home' && document.getElementById('mobHome')) document.getElementById('mobHome').classList.add('active');
-    if (pageName === 'all-games' && document.getElementById('mobGames')) document.getElementById('mobGames').classList.add('active');
-
-    if (pageName === 'all-games') renderAllGames();
-    if (pageName !== 'game') previousPage = pageName;
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function goBack() { showPage(previousPage || 'home'); }
-
-// ============================================
-// All Games
-// ============================================
-function getFilteredGames() {
-    let filtered = [...gamesData];
-    if (currentFilter !== 'all') filtered = filtered.filter(g => g.category === currentFilter);
-    if (currentQuery) {
-        const q = currentQuery.toLowerCase();
-        filtered = filtered.filter(g =>
-            g.title.toLowerCase().includes(q) ||
-            (g.titleEn && g.titleEn.toLowerCase().includes(q)) ||
-            (g.genres && g.genres.toLowerCase().includes(q))
-        );
-    }
-    return filtered;
-}
-
-function renderAllGames() {
-    const filtered = getFilteredGames();
-    const grid = document.getElementById('allGamesGrid');
-    const noResults = document.getElementById('noResults');
-    const loadMoreContainer = document.getElementById('loadMoreContainer');
-    const resultsCount = document.getElementById('resultsCount');
-    const totalCount = document.getElementById('totalCount');
-
-    if (resultsCount) resultsCount.textContent = Math.min(displayedCount, filtered.length);
-    if (totalCount) totalCount.textContent = `من أصل ${filtered.length} منتج`;
-
-    if (filtered.length === 0) {
-        grid.innerHTML = '';
-        noResults.classList.add('show');
-        loadMoreContainer.style.display = 'none';
-        return;
-    }
-
-    noResults.classList.remove('show');
-    const displayGames = filtered.slice(0, displayedCount);
-    grid.innerHTML = displayGames.map(renderGameCard).join('');
-    loadMoreContainer.style.display = displayedCount < filtered.length ? 'block' : 'none';
-}
-
-function loadMore() {
-    displayedCount += GAMES_PER_PAGE;
-    renderAllGames();
-}
-
-function filterFromNav(filter) {
-    currentFilter = filter;
-    currentQuery = '';
-    displayedCount = GAMES_PER_PAGE;
-
-    document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.filter === filter);
+// ========== REVEAL ==========
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
     });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) searchInput.value = '';
-
-    showPage('all-games');
-}
-
-// ============================================
-// بدء التشغيل
-// ============================================
-async function init() {
-    const ok = await loadAllData();
-
-    document.getElementById('loadingScreen').style.display = 'none';
-    document.getElementById('mainContent').style.display = 'block';
-
-    if (!ok || gamesData.length === 0) {
-        document.getElementById('mainContent').innerHTML = `
-            <div style="text-align:center;padding:80px 20px;">
-                <i class="fas fa-exclamation-triangle" style="font-size:3rem;color:#E63946;margin-bottom:20px;"></i>
-                <h2 style="color:#fff;margin-bottom:10px;">فشل تحميل البيانات</h2>
-                <p style="color:#B8A0A5;">تأكد من اتصالك بالإنترنت وحاول مرة أخرى</p>
-                <button onclick="location.reload()" style="margin-top:20px;background:linear-gradient(135deg,#E63946,#8B0000);color:#fff;padding:12px 30px;border-radius:50px;font-weight:800;cursor:pointer;border:none;">إعادة المحاولة</button>
-            </div>
-        `;
-        return;
-    }
-
-    renderHeroSlider();
-    renderGamesGrid('preGrid', gamesData.filter(g => g.category === 'pre'), 10);
-    renderGamesGrid('hotGrid', gamesData.filter(g => g.category === 'hot'), 10);
-    renderGamesGrid('subsGrid', gamesData.filter(g => g.category === 'subscriptions'), 10);
-    renderGamesGrid('accGrid', gamesData.filter(g => g.category === 'accessories'), 10);
-
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            currentQuery = e.target.value.trim();
-            displayedCount = GAMES_PER_PAGE;
-            renderAllGames();
-        });
-    }
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.dataset.filter;
-            displayedCount = GAMES_PER_PAGE;
-            renderAllGames();
-        });
+// ========== ACTIVE NAV ==========
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) current = section.getAttribute('id');
     });
-}
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+});
 
-document.addEventListener('DOMContentLoaded', init);
+// ========== PARALLAX ==========
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroImage = document.querySelector('.hero-image-container');
+    if (heroImage && scrolled < window.innerHeight) {
+        heroImage.style.transform = `translateY(${scrolled * 0.08}px)`;
+    }
+});
 </script>
-</body>
-</html>
+
+
+</body></html>
